@@ -12,23 +12,25 @@ const { NotImplementedError } = require('../extensions/index.js');
  * 
  */
 function getSeason( date ) {
-  let boolean = !date instanceof Date
-  if(boolean){
-   return "Invalid date!"
- }
-   if(date === 'winter' || 'spring' || 'summer' || 'autumn' || 'fall' ){
-   return date
- }
+  throw new NotImplementedError('Not implemented');
+  // remove line with error and write your code here
+//   let boolean = !date instanceof Date
+//   if(boolean){
+//    return "Invalid date!"
+//  }
+//    if(date === 'winter' || 'spring' || 'summer' || 'autumn' || 'fall' ){
+//    return date
+//  }
 
- if(date.getMonth() === 11 || 0 || 1){
-   return 'winter'
- }else if(date.getMonth() === 2 || 3 || 4){
-   return 'spring'
- }else if(date.getMonth() === 5 || 6 || 7){
-   return 'summer'
- }else if(date.getMonth() === 8 || 9 || 10){
-   return 'autumn'
- }
+//  if(date.getMonth() === 11 || 0 || 1){
+//    return 'winter'
+//  }else if(date.getMonth() === 2 || 3 || 4){
+//    return 'spring'
+//  }else if(date.getMonth() === 5 || 6 || 7){
+//    return 'summer'
+//  }else if(date.getMonth() === 8 || 9 || 10){
+//    return 'autumn'
+//  }
 }
 
 module.exports = {
