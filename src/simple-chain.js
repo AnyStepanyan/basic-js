@@ -4,28 +4,72 @@ const { NotImplementedError } = require('../extensions/index.js');
  * Implement chainMaker object according to task description
  * 
  */
+const error = "You can't remove incorrect link!"
+
+function isInt(value) {
+  return (
+    !isNaN(value) &&
+    parseInt(Number(value)) === value &&
+    !isNaN(parseInt(value, 10))
+  )
+}
+
+
+let firstArr = []
+let secondArr = []
+let string = ""
+
 const chainMaker = {
+
   getLength() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    return firstArr.length
   },
-  addLink(/* value */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+  
+  addLink(val) {
+    if (val === null) {
+      val = "null"
+    }
+    if (!val) {
+      firstArr.push(` ( ) `)
+      return this;
+    } else {
+      firstArr.push(` (${val.toString()}) `)
+      return this
+    }
   },
-  removeLink(/* position */) {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+
+  removeLink(position) {
+    if (
+      !isInt(position) ||
+      isNaN(position) ||
+      !position ||
+      position < 0 ||
+      position > chainMaker.getLength()
+    ) {
+      throw new Error(error)
+    }
+    secondArr = [...firstArr]
+    secondArr[position] = "del"
+    firstArr = [];
+    secondArr.forEach((deleteVal) => {
+      if (deleteVal !== "del") {
+        firstArr.push(deleteVal);
+      }
+    })
   },
+
   reverseChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    firstArr.reverse()
+     return this
   },
+
   finishChain() {
-    throw new NotImplementedError('Not implemented');
-    // remove line with error and write your code here
+    let joint = [...firstArr]
+    string = joint.join("~~")
+    return string
   }
-};
+}
+
 
 module.exports = {
   chainMaker

@@ -20,7 +20,7 @@ describe('Extended repeater', () => {
 
   describe('base & functional requirements', () => {
     it.optional('repeats string properly', () => {
-      assert.equal(repeater('la', { repeatTimes: 3 }), 'lalala');
+      assert.equal(repeater('la', { repeatTimes: 3 }), 'la+la+la');
       assert.equal(repeater('single', { repeatTimes: 1 }), 'single');
       assert.equal(repeater('12345', { repeatTimes: 5 }), '12345+12345+12345+12345+12345');
     });
