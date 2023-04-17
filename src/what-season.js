@@ -11,27 +11,54 @@ const { NotImplementedError } = require('../extensions/index.js');
  * getSeason(new Date(2020, 02, 31)) => 'spring'
  * 
  */
-function getSeason( date ) {
-  // throw new NotImplementedError('Not implemented');
-  // // remove line with error and write your code here
-  let boolean = !date instanceof Date
-  if(boolean){
-   return "Invalid date!"
- }
-   if(date === 'winter' || 'spring' || 'summer' || 'autumn' || 'fall' ){
-   return date
- }
+function getSeason(date) {
 
- if(date.getMonth() === 11 || 0 || 1){
-   return 'winter'
- }else if(date.getMonth() === 2 || 3 || 4){
-   return 'spring'
- }else if(date.getMonth() === 5 || 6 || 7){
-   return 'summer'
- }else if(date.getMonth() === 8 || 9 || 10){
-   return 'autumn'
- }
-}
+  if (date === '' || date === null || date == undefined) {
+  
+  return 'Unable to determine the time of year!';
+  
+  
+  }
+  
+  if (!date instanceof Date) {
+  
+  return 'Invalid date!';
+  
+  return date
+  
+  }
+    let month = date.getMonth();
+  switch (month) {
+  
+  case 0: return 'winter'; break;
+  
+  case 1: return 'winter'; break;
+  
+  case 2: return 'spring'; break;
+  
+  case 3: return 'spring'; break;
+  
+  case 4: return 'spring'; break;
+  
+  case 5: return 'summer'; break;
+  
+  case 6: return 'summer'; break;
+  
+  case 7: return 'summer'; break;
+  
+  case 8: return 'autumn'; break;
+  
+  case 9: return 'autumn'; break;
+  
+  case 10: return 'autumn'; break;
+  
+  case 11: return 'winter'; break;
+  
+  default: return 'Dont know';
+  
+  }
+  }
+  
 
 module.exports = {
   getSeason
